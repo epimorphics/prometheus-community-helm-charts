@@ -369,6 +369,23 @@ alertmanager:
       tag: v0.21.0
       sha: ""
 
+    ## Additional server container environment variables
+    ##
+    ## You specify this manually like you would a raw deployment manifest.
+    ## This means you can bind in environment variables from secrets.
+    ##
+    ## e.g. static environment variable:
+    ##  - name: USERNAME
+    ##    value: username
+    ##
+    ## e.g. secret environment variable:
+    ## - name: PASSWORD
+    ##   valueFrom:
+    ##     secretKeyRef:
+    ##       name: mysecret
+    ##       key: password
+    env: []
+
     ## If true then the user will be responsible to provide a secret with alertmanager configuration
     ## So when true the config part will be ignored (including templateFiles) and the one in the secret will be used
     ##

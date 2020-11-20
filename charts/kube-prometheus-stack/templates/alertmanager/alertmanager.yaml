@@ -17,6 +17,10 @@ spec:
 {{- end }}
   replicas: {{ .Values.alertmanager.alertmanagerSpec.replicas }}
   listenLocal: {{ .Values.alertmanager.alertmanagerSpec.listenLocal }}
+{{- if .Values.alertmanager.alertmanagerSpec.env }}
+  env:
+{{ toYaml .Values.alertmanager.alertmanagerSpec.env | indent 4 }}
+{{- end }}
   serviceAccountName: {{ template "kube-prometheus-stack.alertmanager.serviceAccountName" . }}
 {{- if .Values.alertmanager.alertmanagerSpec.externalUrl }}
   externalUrl: "{{ .Values.alertmanager.alertmanagerSpec.externalUrl }}"
