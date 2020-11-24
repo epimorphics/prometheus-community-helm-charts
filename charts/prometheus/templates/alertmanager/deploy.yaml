@@ -52,7 +52,7 @@ spec:
             - name: {{ $key }}
               value: {{ $value }}
             {{- end }}
-            {{- range $key, $value := .Values.extraEnvSecrets }}
+            {{- range $key, $value := .Values.alertmanager.extraEnvSecrets }}
             - name: {{ $key }}
               valueFrom:
                 secretKeyRef:
