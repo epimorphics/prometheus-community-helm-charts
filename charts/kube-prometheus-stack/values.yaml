@@ -139,6 +139,15 @@ alertmanager:
     minAvailable: 1
     maxUnavailable: ""
 
+  ## A list of environment variables from secret refs that will be passed into the alertmanager pod
+  ## example:
+  ## This will set ${GMAIL_PASSWORD} to the 'password' key from the 'gmail-secret' secret
+  ## extraEnvSecrets:
+  ##   GMAIL_PASSWORD:
+  ##     secret: gmail-secret
+  ##     key: password
+  extraEnvSecrets: {}
+
   ## Alertmanager configuration directives
   ## ref: https://prometheus.io/docs/alerting/configuration/#configuration-file
   ##      https://prometheus.io/webtools/alerting/routing-tree-editor/
